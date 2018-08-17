@@ -1,4 +1,4 @@
-sudo su
+set -x
 cd
 sudo apt-get update -qq
 sudo apt-get upgrade
@@ -21,6 +21,10 @@ sudo apt-get install libvpx-dev
 sudo apt-get install libfdk-aac-dev
 sudo apt-get install libmp3lame-dev
 sudo apt-get install libopus-dev
+sudo apt-get install libboost-all-dev
+sudo apt-get install libboost-python-dev
+sudo python2 -m pip install opencv-contrib-python
+sudo python3 -m pip install opencv-contrib-python
 cd ~/ffmpeg_sources
 git -C aom pull 2> /dev/null || git clone --depth 1 https://aomedia.googlesource.com/aom
 mkdir aom_build
