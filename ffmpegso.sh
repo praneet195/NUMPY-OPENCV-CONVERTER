@@ -29,7 +29,7 @@ cd ~/ffmpeg_sources
 git -C aom pull 2> /dev/null || git clone --depth 1 https://aomedia.googlesource.com/aom
 mkdir aom_build
 cd aom_build
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED=on -DENABLE_NASM=on ../aom
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DCMAKE_POSITION_INDEPENDENT_CODE="True" -DCMAKE_CXX_FLAGS="-fPIC" -DCMAKE_C_FLAGS="-fPIC" -DENABLE_SHARED=on -DENABLE_NASM=on ../aom
 PATH="$HOME/bin:$PATH" make -j$(nproc)
 make install
 cd
