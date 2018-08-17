@@ -1369,3 +1369,36 @@ BOOST_PYTHON_MODULE(ffmpeg)
 
 }
 
+
+BOOST_PYTHON_MODULE(ffmpegpy3)
+
+{using namespace boost::python;
+
+
+    class_<FMV,FMV*>("FMV",init<int,char*>())
+      .def_readonly("cv_mat",&FMV::cv_mat)
+      .def("getSrcFilename",&FMV::getSrcFilename)
+      .def("setFrameFlag",&FMV::setFrameFlag)
+      .def("getFrameFlag",&FMV::getFrameFlag)
+      .def("connect",&FMV::connect)
+      .def("open_codec_context",&FMV::open_codec_context)
+      .def("decode_packet",&FMV::decode_packet)
+      .def("extract_frame_with_sei",&FMV::extract_frame_with_sei)
+      .def("flush_cached_frames",&FMV::flush_cached_frames)
+      .def("freeStuff",&FMV::freeStuff)
+      .def("get_current_frame_number",&FMV::get_current_frame_number)
+      .def("increase_current_frame_number",&FMV::increase_current_frame_number)
+      .def("getMAT",&FMV::getMAT)
+      .def("getPacketData",&FMV::getPacketData)
+      .def("getSEI",&FMV::getSEI);
+
+
+
+
+      //using namespace XM;
+
+      //expose module-level functions
+
+
+}
+
